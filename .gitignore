@@ -1,0 +1,8 @@
+# Never commit data, backups or secrets
+*.backup
+*.backup.gz
+*.dump
+*_data.sql
+.env
+.env.*
+secrets/
