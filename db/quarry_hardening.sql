@@ -63,3 +63,11 @@ $$ select q.role_id from public.qc_users q join auth.users a on a.id = q.user_id
    where q.active and (q.username = lower(trim(u)) or lower(a.email) = lower(trim(u)) or lower(a.email) = lower(trim(u)) || '@quary.invalid') limit 1 $$;
 revoke all on function public.qc_role_lookup(text) from public;
 grant execute on function public.qc_role_lookup(text) to anon, authenticated;
+
+-- the Edge Function (service_role) needs table privileges too
+do $$ declare t text; begin
+  for t in select tablename from pg_tables where schemaname='public' and tablename like 'qc\_%' loop
+    execute format('grant all on public.%I to service_role', t);
+  end loop;
+end $$;
+grant usage on schema public to service_role;

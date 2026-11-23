@@ -19,14 +19,16 @@ Deno.serve(async (req) => {
       return json({ error: "Only the Administrator can manage users." }, 403);
     }
     const b = await req.json();
-    const { data: roles } = await admin.from("qc_roles").select("role_id").eq("active", true);
+    b.role = String(b.role ?? "").trim().toLowerCase();
+    const { data: roles, error: roleErr } = await admin.from("qc_roles").select("role_id").eq("active", true);
+    if (roleErr) return json({ error: "Could not read roles: " + roleErr.message }, 500);
     const okRole = (r: string) => (roles || []).some((x) => x.role_id === r);
     const strongPw = (p: string) => typeof p === "string" && p.length >= 8;
 
     if (b.action === "create") {
       const username = String(b.username || "").trim().toLowerCase();
       if (!/^[a-z0-9._-]{3,30}$/.test(username)) return json({ error: "Username: 3-30 letters, numbers, . _ -" }, 400);
-      if (!okRole(b.role)) return json({ error: "Unknown role." }, 400);
+      if (!okRole(b.role)) return json({ error: "Unknown role: " + b.role }, 400);
       if (!strongPw(b.password)) return json({ error: "Password must be at least 8 characters." }, 400);
       const { data, error } = await admin.auth.admin.createUser({
         email: `${username}@quary.invalid`, password: b.password, email_confirm: true,

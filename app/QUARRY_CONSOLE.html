@@ -304,6 +304,51 @@ tr:hover td{background:rgba(255,255,255,.02);}
 
 .section-note{font-size:12.5px;color:var(--stone-400);background:var(--stone-800);border:1px solid var(--stone-700);border-radius:8px;padding:10px 13px;margin-bottom:16px;}
 
+
+/* ---- Users & Roles full page (same layout as CP NEXUS Users & Roles) ---- */
+.ur-page{width:100%;min-height:100vh;display:flex;flex-direction:column;}
+.ur-top{display:flex;align-items:center;gap:14px;padding:16px 28px;border-bottom:1px solid var(--stone-700);flex-wrap:wrap;}
+.ur-badge{width:58px;height:58px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:6px;}
+.ur-badge svg{width:100%;height:100%;}
+.ur-top h2{margin:0;font-size:22px;letter-spacing:.06em;color:var(--amber);}
+.ur-top p{margin:2px 0 0;font-size:13px;color:var(--stone-400);}
+.ur-top .grow{flex:1;}
+.ur-tabs{display:flex;gap:6px;padding:12px 28px 0;border-bottom:1px solid var(--stone-700);}
+.ur-tab{background:transparent;border:0;border-bottom:3px solid transparent;color:var(--stone-400);padding:10px 16px;font-size:15px;cursor:pointer;}
+.ur-tab.on{color:var(--amber);border-bottom-color:var(--amber);font-weight:600;}
+.ur-main{flex:1;overflow:auto;padding:20px 28px 40px;}
+.ur-wrap{max-width:1250px;margin:0 auto;}
+.ur-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+.ur-bar .grow{flex:1;min-width:180px;}
+.ur-wrap input,.ur-wrap select{background:var(--stone-800);border:1px solid var(--stone-600);color:var(--paper);border-radius:8px;padding:8px 10px;font-size:14px;min-width:0;}
+.ur-wrap input:focus,.ur-wrap select:focus{outline:none;border-color:var(--amber);}
+.ur-btn{background:var(--amber);color:#201400;border:0;border-radius:9px;padding:9px 16px;font-weight:700;cursor:pointer;font-size:14px;}
+.ur-btn[disabled]{opacity:.35;cursor:default;}
+.ur-btn.ghost{background:transparent;color:var(--paper);border:1px solid var(--stone-600);font-weight:500;}
+.ur-btn.small{padding:6px 11px;font-size:13px;}
+.ur-add{display:none;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;align-items:end;background:var(--stone-850);border:1px solid rgba(212,178,92,.4);border-radius:12px;padding:16px;margin-bottom:16px;}
+.ur-add.open{display:grid;}
+.ur-add label{display:block;font-size:12px;color:var(--stone-400);margin-bottom:4px;}
+.ur-add input,.ur-add select{width:100%;box-sizing:border-box;}
+.ur-note{background:rgba(95,214,138,.1);border:1px solid rgba(95,214,138,.4);border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:14px;}
+.ur-note.err{background:rgba(217,92,92,.12);border-color:rgba(217,92,92,.5);}
+.ur-note code{background:#0a0a0a;padding:3px 8px;border-radius:6px;font-size:15px;letter-spacing:.05em;color:var(--amber);margin:0 6px;}
+.ur-tw{overflow-x:auto;border:1px solid var(--stone-700);border-radius:12px;}
+.ur-tbl{width:100%;border-collapse:collapse;font-size:14px;}
+.ur-tbl th{background:var(--stone-850);text-align:left;padding:11px 12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--stone-400);white-space:nowrap;}
+.ur-tbl td{padding:9px 12px;border-top:1px solid var(--stone-700);vertical-align:middle;}
+.ur-tbl tr:hover td{background:rgba(255,255,255,.025);}
+.ur-tbl .uname{font-weight:600;}
+.ur-tbl .sub{font-size:12px;color:var(--stone-400);}
+.ur-tbl .act{display:flex;gap:6px;}
+.ur-pill{display:inline-block;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:600;}
+.ur-pill.on{background:rgba(47,168,106,.18);color:#58d398;}
+.ur-pill.off{background:rgba(217,92,92,.18);color:#f08a8a;}
+.ur-pill.adm{background:rgba(212,178,92,.2);color:var(--amber);margin-left:6px;}
+.ur-sw{display:inline-flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap;}
+.ur-sw input{width:auto;margin:0;accent-color:var(--amber);transform:scale(1.2);}
+.ur-hint{color:var(--stone-400);font-size:13px;margin:0 0 14px;}
+
 /* ---- IP Security screen (elite dark, matches CP IP-SECURITY layout) ---- */
 .ipsec-header{display:flex;gap:16px;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid var(--stone-700);margin-bottom:20px;}
 .ipsec-avatar{width:76px;height:76px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px;}
@@ -395,7 +440,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
         <div class="tile-tag">Machinery hours &amp; billing</div>
       </div>
       <div class="tile admin-only" id="tile-users" style="display:none">
-        <div class="tile-icon round icon-mode"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16.5 14.2c3 .2 5 2 5 5.3"/></svg></div>
+        <div class="tile-icon round"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="urg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6fed"/><stop offset="1" stop-color="#173a8c"/></linearGradient><linearGradient id="urg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c453"/><stop offset="1" stop-color="#d9901a"/></linearGradient></defs><circle cx="22" cy="20" r="9" fill="url(#urg1)"/><path d="M5 52c0-10 8-16 17-16s17 6 17 16z" fill="url(#urg1)"/><circle cx="44" cy="23" r="7" fill="url(#urg2)"/><path d="M33 52c0-8 5-13 12-13s13 5 13 13z" fill="url(#urg2)"/><path d="M44 8l4 2v4c0 3-2 5-4 6-2-1-4-3-4-6v-4z" fill="#1f9d63"/></svg></div>
         <div class="tile-name">USERS &amp; ROLES</div>
         <div class="tile-tag">Administrator only</div>
       </div>
@@ -423,6 +468,20 @@ tr:hover td{background:rgba(255,255,255,.02);}
     </div>
     <div id="ipsecurity-body"></div>
     <div style="text-align:right;margin-top:8px;"><button class="btn btn-outline btn-sm" id="ips-logout-btn">Log Out</button></div>
+  </div>
+</div>
+
+<div id="users-screen" class="screen hidden" style="align-items:flex-start;padding:0;">
+  <div class="ur-page">
+    <div class="ur-top">
+      <div class="ur-badge"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="urg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6fed"/><stop offset="1" stop-color="#173a8c"/></linearGradient><linearGradient id="urg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6c453"/><stop offset="1" stop-color="#d9901a"/></linearGradient></defs><circle cx="22" cy="20" r="9" fill="url(#urg1)"/><path d="M5 52c0-10 8-16 17-16s17 6 17 16z" fill="url(#urg1)"/><circle cx="44" cy="23" r="7" fill="url(#urg2)"/><path d="M33 52c0-8 5-13 12-13s13 5 13 13z" fill="url(#urg2)"/><path d="M44 8l4 2v4c0 3-2 5-4 6-2-1-4-3-4-6v-4z" fill="#1f9d63"/></svg></div>
+      <div><h2>USERS &amp; ROLES</h2><p>Quarry Console &mdash; who can sign in and what they can do &middot; Administrator only</p></div>
+      <div class="grow"></div>
+      <button class="home-pill" id="ur-home-btn">&#8962; Home</button>
+      <button class="btn btn-outline btn-sm" id="ur-logout-btn">Log Out</button>
+    </div>
+    <div class="ur-tabs"><button class="ur-tab on" data-tab="people">People</button><button class="ur-tab" data-tab="roles">Roles</button></div>
+    <div class="ur-main"><div class="ur-wrap" id="ur-body"></div></div>
   </div>
 </div>
 
@@ -860,6 +919,7 @@ function logout() {
   document.getElementById("app-shell").classList.remove("active");
   document.getElementById("home-screen").classList.add("hidden");
   document.getElementById("ipsecurity-screen").classList.add("hidden");
+  document.getElementById("users-screen").classList.add("hidden");
   document.getElementById("login-screen").classList.remove("hidden");
   document.getElementById("login-pass").value = "";
 }
@@ -871,6 +931,7 @@ function showHome() {
   document.getElementById("login-screen").classList.add("hidden");
   document.getElementById("app-shell").classList.remove("active");
   document.getElementById("ipsecurity-screen").classList.add("hidden");
+  document.getElementById("users-screen").classList.add("hidden");
   document.getElementById("home-screen").classList.remove("hidden");
   document.getElementById("qs-role-label").textContent = roleLabel();
   document.querySelectorAll(".owner-only").forEach(el => el.style.display = SESSION.dept === "OWNER" ? "" : "none");
@@ -887,8 +948,8 @@ document.getElementById("sb-home-btn").addEventListener("click", () => {
 document.getElementById("ips-home-btn").addEventListener("click", showHome);
 
 /* =====================================================================
-   USERS & ROLES (Administrator only) — same layout as CP NEXUS:
-   Users (username, display name, role, active, last login) + Roles.
+   USERS & ROLES (Administrator only) — full page, same layout as CP NEXUS:
+   People (search, filters, add person, inline edit) + Roles.
    Logins are created/changed by the "qc-admin" Supabase Edge Function,
    which checks the caller really is the Administrator.
 ===================================================================== */
@@ -903,60 +964,136 @@ async function qcAdmin(body) {
   if (data && data.error) throw new Error(data.error);
   return data;
 }
-async function openUsersRoles() {
-  if (!SESSION || SESSION.role !== "administrator") { toast("Only the Administrator can manage users.", "err"); return; }
-  const [u, r] = await Promise.all([
-    sb.from("qc_users").select("*").order("created_at"),
-    sb.from("qc_roles").select("*").order("sort_order")
-  ]);
-  if (u.error || r.error) { toast("Could not load users: " + (u.error || r.error).message, "err"); return; }
-  const roles = r.data.filter(x => x.active);
-  const rows = u.data.map(x => `<tr>
-    <td><b>${escH(x.username)}</b></td><td>${escH(x.display_name)}</td>
-    <td>${escH((r.data.find(y => y.role_id === x.role_id) || {}).name || x.role_id)}</td>
-    <td>${x.active ? "Active" : "Disabled"}</td>
-    <td>${x.last_login ? new Date(x.last_login).toLocaleString() : "&mdash;"}</td>
-    <td style="white-space:nowrap">
-      <button class="btn btn-outline btn-sm" data-ur="edit" data-id="${x.user_id}">Edit</button>
-      <button class="btn btn-outline btn-sm" data-ur="pw" data-id="${x.user_id}">Reset password</button>
-    </td></tr>`).join("");
-  openModal(`<h3 style="margin-bottom:12px">Users &amp; Roles</h3>
-    <div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:13px">
-      <thead><tr style="text-align:left;color:var(--lp-muted)"><th>Username</th><th>Name</th><th>Role</th><th>Status</th><th>Last login</th><th></th></tr></thead>
-      <tbody>${rows}</tbody></table></div>
-    <div style="margin:14px 0 6px;color:var(--lp-muted);font-size:12px">Roles: ${r.data.map(x => escH(x.name) + (x.is_super ? " (super)" : x.is_admin ? " (admin)" : "")).join(" &middot; ")}</div>
-    <h4 style="margin:14px 0 8px">Add user</h4>
-    <div class="field"><label>Username</label><input id="ur-new-user" placeholder="e.g. suresh" autocapitalize="none"></div>
-    <div class="field"><label>Display name</label><input id="ur-new-name" placeholder="Full name"></div>
-    <div class="field"><label>Role</label><select id="ur-new-role">${roles.map(x => `<option value="${x.role_id}">${escH(x.name)}</option>`).join("")}</select></div>
-    <div class="field"><label>Password (min 8 characters)</label><input id="ur-new-pass" type="password" autocomplete="new-password"></div>
-    <div class="modal-actions"><button class="btn btn-outline" id="ur-close">Close</button><button class="btn btn-amber" id="ur-add">Add user</button></div>`);
-  document.getElementById("modal-content").style.maxWidth = "760px";
-  document.getElementById("ur-close").onclick = () => { document.getElementById("modal-content").style.maxWidth = ""; closeModal(); };
-  document.getElementById("ur-add").onclick = async () => {
-    try {
-      await qcAdmin({ action: "create", username: document.getElementById("ur-new-user").value, display_name: document.getElementById("ur-new-name").value, role: document.getElementById("ur-new-role").value, password: document.getElementById("ur-new-pass").value });
-      toast("User added.", "ok"); openUsersRoles();
-    } catch (e) { toast(e.message, "err"); }
-  };
-  document.querySelectorAll("[data-ur]").forEach(b => b.onclick = async () => {
-    const x = u.data.find(y => y.user_id === b.dataset.id);
-    try {
-      if (b.dataset.ur === "pw") {
-        const np = prompt("New password for " + x.username + " (min 8 characters):");
-        if (!np) return;
-        await qcAdmin({ action: "reset", user_id: x.user_id, password: np }); toast("Password changed.", "ok");
-      } else {
-        const rn = prompt("Role for " + x.username + " (" + roles.map(y => y.role_id).join(" / ") + "):", x.role_id);
-        if (!rn) return;
-        const act = confirm(x.username + " active? OK = Active, Cancel = Disabled");
-        await qcAdmin({ action: "update", user_id: x.user_id, role: rn.trim().toLowerCase(), active: act, display_name: x.display_name });
-        toast("User updated.", "ok"); openUsersRoles();
-      }
-    } catch (e) { toast(e.message, "err"); }
-  });
+function tempPassword() {
+  const cs = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
+  const a = new Uint32Array(10); crypto.getRandomValues(a);
+  return Array.from(a, x => cs[x % cs.length]).join("");
 }
-document.getElementById("tile-users").addEventListener("click", () => openUsersRoles());
+const ROLE_INFO = {
+  administrator: "Full access to every quarry and setting, and manages users and roles.",
+  owner: "Full access to every quarry, rates, permits, IP security and opening balances.",
+  employee: "Daily entries only. No rates, IP security, or user management."
+};
+const URD = { users: [], roles: [], tab: "people", q: "", role: "", status: "", note: null, addOpen: false };
+
+async function goUsersScreen() {
+  if (!SESSION || SESSION.role !== "administrator") { toast("Only the Administrator can manage users.", "err"); return; }
+  document.getElementById("home-screen").classList.add("hidden");
+  document.getElementById("app-shell").classList.remove("active");
+  document.getElementById("users-screen").classList.remove("hidden");
+  await urRefresh();
+}
+async function urRefresh(note) {
+  const [u, r] = await Promise.all([sb.from("qc_users").select("*").order("created_at"), sb.from("qc_roles").select("*").order("sort_order")]);
+  if (u.error || r.error) { toast("Could not load users: " + (u.error || r.error).message, "err"); return; }
+  URD.users = u.data; URD.roles = r.data; URD.note = note || null;
+  urRender();
+}
+function urNote(text, isErr, code) {
+  const d = document.createElement("div"); d.className = "ur-note" + (isErr ? " err" : "");
+  d.appendChild(document.createTextNode(text));
+  if (code) {
+    const c = document.createElement("code"); c.textContent = code; d.appendChild(c);
+    const b = document.createElement("button"); b.className = "ur-btn ghost small"; b.textContent = "Copy";
+    b.onclick = () => { navigator.clipboard && navigator.clipboard.writeText(code); b.textContent = "Copied"; };
+    d.appendChild(b);
+  }
+  return d;
+}
+function urRender() {
+  const body = document.getElementById("ur-body"); body.innerHTML = "";
+  document.querySelectorAll(".ur-tab").forEach(t => t.classList.toggle("on", t.dataset.tab === URD.tab));
+  if (URD.note) body.appendChild(URD.note);
+  if (URD.tab === "roles") { urRenderRoles(body); return; }
+  const activeRoles = URD.roles.filter(x => x.active);
+  const roleName = id => (URD.roles.find(x => x.role_id === id) || {}).name || id;
+  const roleOpts = sel => activeRoles.map(x => `<option value="${x.role_id}"${x.role_id === sel ? " selected" : ""}>${escH(x.name)}</option>`).join("");
+
+  const bar = document.createElement("div"); bar.className = "ur-bar";
+  bar.innerHTML = `<input class="grow" id="ur-q" placeholder="Search username or name" value="${escH(URD.q)}">
+    <select id="ur-fr"><option value="">All roles</option>${URD.roles.map(x => `<option value="${x.role_id}"${URD.role === x.role_id ? " selected" : ""}>${escH(x.name)}</option>`).join("")}</select>
+    <select id="ur-fs"><option value="">All status</option><option value="on"${URD.status === "on" ? " selected" : ""}>Active</option><option value="off"${URD.status === "off" ? " selected" : ""}>Disabled</option></select>
+    <button class="ur-btn" id="ur-addtoggle">+ Add person</button>`;
+  body.appendChild(bar);
+
+  const add = document.createElement("div"); add.className = "ur-add" + (URD.addOpen ? " open" : "");
+  add.innerHTML = `<div><label>Username</label><input id="ur-nu" placeholder="e.g. suresh" autocapitalize="none"></div>
+    <div><label>Display name</label><input id="ur-nn" placeholder="Full name"></div>
+    <div><label>Role</label><select id="ur-nr">${roleOpts("employee")}</select></div>
+    <div><label>Temporary password</label><input id="ur-np" value="${tempPassword()}"></div>
+    <div><button class="ur-btn" id="ur-addbtn">Add person</button></div>`;
+  body.appendChild(add);
+
+  const tw = document.createElement("div"); tw.className = "ur-tw";
+  tw.innerHTML = `<table class="ur-tbl"><thead><tr><th>Person</th><th>Display name</th><th>Role</th><th>Status</th><th>Last sign-in</th><th>Actions</th></tr></thead><tbody id="ur-tb"></tbody></table>`;
+  body.appendChild(tw);
+  const empty = document.createElement("p"); empty.className = "ur-hint"; empty.style.marginTop = "12px"; empty.textContent = "No one matches. Change the search or filters."; empty.style.display = "none"; body.appendChild(empty);
+
+  const tb = document.getElementById("ur-tb"); const rows = [];
+  URD.users.forEach(u => {
+    const tr = document.createElement("tr");
+    const meRow = u.user_id && SESSION && u.username === SESSION.username;
+    tr.innerHTML = `<td><div class="uname">${escH(u.username)}</div>${u.role_id === "administrator" ? '<div class="sub">Administrator</div>' : ""}</td>
+      <td><input data-f="name" value="${escH(u.display_name || "")}" placeholder="Display name"></td>
+      <td><select data-f="role">${roleOpts(u.role_id)}</select></td>
+      <td><label class="ur-sw"><input type="checkbox" data-f="active"${u.active ? " checked" : ""}><span class="ur-pill ${u.active ? "on" : "off"}">${u.active ? "Active" : "Disabled"}</span></label></td>
+      <td class="sub">${u.last_login ? new Date(u.last_login).toLocaleString("en-IN", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" }) : "Never signed in"}</td>
+      <td><div class="act"><button class="ur-btn small" data-a="save" disabled>Save</button><button class="ur-btn ghost small" data-a="pw">Reset password</button></div></td>`;
+    const save = tr.querySelector('[data-a="save"]');
+    const dirty = () => { save.disabled = false; };
+    tr.querySelectorAll("[data-f]").forEach(el => el.addEventListener(el.type === "checkbox" || el.tagName === "SELECT" ? "change" : "input", dirty));
+    tr.querySelector('[data-f="active"]').addEventListener("change", e => { const p = tr.querySelector(".ur-pill"); p.className = "ur-pill " + (e.target.checked ? "on" : "off"); p.textContent = e.target.checked ? "Active" : "Disabled"; });
+    save.onclick = async () => {
+      save.disabled = true;
+      try {
+        await qcAdmin({ action: "update", user_id: u.user_id, role: tr.querySelector('[data-f="role"]').value, active: tr.querySelector('[data-f="active"]').checked, display_name: tr.querySelector('[data-f="name"]').value });
+        await urRefresh(urNote("Saved " + u.username + ".", false));
+      } catch (e) { save.disabled = false; body.insertBefore(urNote(e.message, true), body.firstChild); }
+    };
+    tr.querySelector('[data-a="pw"]').onclick = async () => {
+      if (!confirm("Reset the password for " + u.username + "? A new temporary password will be shown once.")) return;
+      const np = tempPassword();
+      try { await qcAdmin({ action: "reset", user_id: u.user_id, password: np }); await urRefresh(urNote("New password for " + u.username + " (shown once, give it privately):", false, np)); }
+      catch (e) { body.insertBefore(urNote(e.message, true), body.firstChild); }
+    };
+    tb.appendChild(tr);
+    rows.push({ tr, hay: (u.username + " " + (u.display_name || "")).toLowerCase(), role: u.role_id, active: u.active });
+  });
+  const applyFilter = () => {
+    URD.q = document.getElementById("ur-q").value; URD.role = document.getElementById("ur-fr").value; URD.status = document.getElementById("ur-fs").value;
+    let n = 0;
+    rows.forEach(r => {
+      const ok = (!URD.q || r.hay.includes(URD.q.toLowerCase())) && (!URD.role || r.role === URD.role) && (!URD.status || (URD.status === "on") === r.active);
+      r.tr.style.display = ok ? "" : "none"; if (ok) n++;
+    });
+    empty.style.display = n ? "none" : "";
+  };
+  ["ur-q", "ur-fr", "ur-fs"].forEach(id => document.getElementById(id).addEventListener("input", applyFilter));
+  applyFilter();
+  document.getElementById("ur-addtoggle").onclick = () => { URD.addOpen = !URD.addOpen; add.classList.toggle("open", URD.addOpen); };
+  document.getElementById("ur-addbtn").onclick = async () => {
+    const btn = document.getElementById("ur-addbtn"); btn.disabled = true;
+    const pw = document.getElementById("ur-np").value;
+    try {
+      await qcAdmin({ action: "create", username: document.getElementById("ur-nu").value, display_name: document.getElementById("ur-nn").value, role: document.getElementById("ur-nr").value, password: pw });
+      URD.addOpen = false;
+      await urRefresh(urNote("Added " + document.getElementById("ur-nu").value.trim().toLowerCase() + ". Temporary password (shown once, give it privately):", false, pw));
+    } catch (e) { btn.disabled = false; body.insertBefore(urNote(e.message, true), body.firstChild); }
+  };
+}
+function urRenderRoles(body) {
+  const p = document.createElement("p"); p.className = "ur-hint";
+  p.textContent = "Roles decide what each person can do. Administrator and Owner have full access; Employee is limited to daily entries.";
+  body.appendChild(p);
+  const tw = document.createElement("div"); tw.className = "ur-tw";
+  tw.innerHTML = `<table class="ur-tbl"><thead><tr><th>Role</th><th>Level</th><th>People</th><th>What it can do</th></tr></thead><tbody>${URD.roles.map(r =>
+    `<tr><td class="uname">${escH(r.name)}</td><td>${r.is_super ? '<span class="ur-pill adm">Super admin</span>' : r.is_admin ? '<span class="ur-pill adm">Admin</span>' : '<span class="ur-pill on">Standard</span>'}</td><td>${URD.users.filter(u => u.role_id === r.role_id).length}</td><td class="sub">${escH(ROLE_INFO[r.role_id] || "")}</td></tr>`).join("")}</tbody></table>`;
+  body.appendChild(tw);
+}
+document.querySelectorAll(".ur-tab").forEach(t => t.addEventListener("click", () => { URD.tab = t.dataset.tab; urRender(); }));
+document.getElementById("ur-home-btn").addEventListener("click", showHome);
+document.getElementById("ur-logout-btn").addEventListener("click", logout);
+document.getElementById("tile-users").addEventListener("click", () => runWithLoading("Opening Users & Roles", goUsersScreen));
 
 
 /* Shows the truck loading animation for a short beat, then runs the given
@@ -981,6 +1118,7 @@ async function enterQuarry(code) {
   sessionStorage.setItem("qc_quarry", code);
   document.getElementById("home-screen").classList.add("hidden");
   document.getElementById("ipsecurity-screen").classList.add("hidden");
+  document.getElementById("users-screen").classList.add("hidden");
   document.getElementById("app-shell").classList.add("active");
   const meta = QUARRIES.find(q => q.code === code);
   document.getElementById("sb-quarry-name").textContent = meta.name;
