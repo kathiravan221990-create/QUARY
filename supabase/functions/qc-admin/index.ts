@@ -37,7 +37,7 @@ Deno.serve(async (req) => {
       if (error) return json({ error: error.message }, 400);
       const { error: e2 } = await admin.from("qc_users").insert({
         user_id: data.user!.id, username, display_name: b.display_name || username,
-        role_id: b.role, created_by: caller.user.email,
+        role_id: b.role, must_change_password: true, created_by: caller.user.email,
       });
       if (e2) { await admin.auth.admin.deleteUser(data.user!.id); return json({ error: e2.message }, 400); }
       return json({ ok: true });
@@ -58,6 +58,7 @@ Deno.serve(async (req) => {
       if (!strongPw(b.password)) return json({ error: "Password must be at least 8 characters." }, 400);
       const { error } = await admin.auth.admin.updateUserById(b.user_id, { password: b.password });
       if (error) return json({ error: error.message }, 400);
+      await admin.from("qc_users").update({ must_change_password: true }).eq("user_id", b.user_id);
       return json({ ok: true });
     }
     return json({ error: "Unknown action." }, 400);

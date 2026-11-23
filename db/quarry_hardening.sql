@@ -71,3 +71,9 @@ do $$ declare t text; begin
   end loop;
 end $$;
 grant usage on schema public to service_role;
+
+-- a person clears their own "must change password" flag after choosing a new password
+create or replace function public.qc_clear_must_change() returns void language sql security definer set search_path = public as
+$$ update public.qc_users set must_change_password = false where user_id = auth.uid() $$;
+revoke all on function public.qc_clear_must_change() from public, anon;
+grant execute on function public.qc_clear_must_change() to authenticated;
